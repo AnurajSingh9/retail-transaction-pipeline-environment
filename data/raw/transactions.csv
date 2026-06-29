@@ -1,0 +1,6 @@
+transaction_id,order_timestamp,store_id,customer_id,product_sku,quantity,unit_price,discount_pct,payment_method,region
+TXN-100001,2026-06-27 09:14:23,STR-101,CUS-2001,SKU-5001,2,799.99,10,Card,North
+TXN-100002,2026-06-27 10:02:11,STR-102,CUS-2002,SKU-5004,1,1299.00,5,UPI,West
+TXN-100003,2026-06-27 10:18:45,STR-101,CUS-2003,SKU-5008,3,249.50,0,Cash,North
+TXN-100004,2026-06-27 11:06:19,STR-104,CUS-2004,SKU-5010,1,4999.00,15,Card,South
+TXN-100005,2026-06-27 11:42:53,STR-103,CUS-2005,SKU-5006,4,99.99,0,Wallet,East
