@@ -1,0 +1,145 @@
+# Submission Notes – Retail Transaction Pipeline RL Environment
+
+## 1. Short Bio
+
+My background is in Python, data engineering, ETL development, and automation. I have experience building data processing pipelines, implementing validation logic, writing automated tests, and maintaining production-style repositories.
+
+For this trial I built an original repository from scratch that simulates a production data engineering incident requiring repository-level investigation rather than a single isolated code change.
+
+While building the environment I focused on maintainability, automated verification, engineering documentation, and creating a workflow that reflects how production software teams investigate regressions.
+
+---
+
+## 2. Suitable Role
+
+I believe I am best suited for the **RL Environment Builder** role.
+
+My strengths include:
+
+* Designing realistic software engineering repositories.
+* Building Python-based evaluation environments.
+* Writing automated tests and repository verifiers.
+* Creating engineering documentation.
+* Designing debugging tasks that require repository-level reasoning.
+
+As I gain additional experience reviewing other builders' environments, I would also be interested in contributing to environment quality review.
+
+---
+
+## 3. Why This Environment
+
+Rather than creating a standalone coding problem, I wanted to model a realistic software engineering workflow.
+
+The repository represents a Retail Transaction Pipeline consisting of independent modules responsible for:
+
+* Loading transaction data.
+* Applying business transformations.
+* Validating processed records.
+* Exporting processed datasets.
+* Repository verification.
+
+The accompanying documentation frames the task as a production incident introduced during a fictional **v2.3.0** deployment. An engineer must understand multiple modules before making implementation changes.
+
+The objective is to encourage repository comprehension and long-horizon reasoning instead of isolated code generation.
+
+---
+
+## 4. Target Capability
+
+This environment evaluates whether a coding agent can:
+
+* Understand an unfamiliar repository.
+* Follow engineering documentation.
+* Trace data through multiple pipeline stages.
+* Preserve project architecture while implementing fixes.
+* Validate changes using automated tests and repository verification.
+
+These activities more closely resemble production software engineering than solving isolated algorithmic problems.
+
+---
+
+## 5. Originality and Contamination
+
+This repository was created specifically for the Tensium trial.
+
+All implementation, documentation, datasets, automated tests, verifier logic, and project structure were produced during this build.
+
+No code or assets were reused from previous employers, clients, proprietary repositories, or benchmark datasets.
+
+The business scenario is fictional and was created solely for evaluation purposes.
+
+---
+
+## 6. Verifier Design
+
+The repository includes an automated verifier that performs repository-level validation by:
+
+* Executing the complete pipeline.
+* Running the automated test suite.
+* Confirming the processed dataset is generated successfully.
+* Comparing the generated dataset against the expected reference output.
+
+This ensures repository correctness is determined from observable outputs rather than user-reported success.
+
+---
+
+## 7. How I Evaluated the Verifier
+
+During development I intentionally tested several failure scenarios, including:
+
+* Missing processed output.
+* Empty processed datasets.
+* Incorrect expected output.
+* Validation failures.
+* Transformation logic changes.
+
+These experiments confirmed that incorrect repository behavior is detected by the verifier rather than passing solely because execution completed.
+
+---
+
+## 8. One Thing I Got Wrong
+
+My initial verifier only checked whether the processed CSV file existed.
+
+While testing the repository I realized that incorrect transformation logic could still pass verification if the pipeline successfully produced an output file.
+
+I corrected this by comparing the generated dataset against the expected reference dataset, significantly improving verifier reliability.
+
+---
+
+## 9. Comments on the Build Template
+
+The engineering checklist places strong emphasis on verifier soundness and reproducibility, which I found valuable during implementation.
+
+One area that could be expanded is repository-scale examples demonstrating long-horizon debugging environments involving production regressions, multi-module investigation, and repository-wide reasoning.
+
+Those examples would make the expected quality bar even clearer for future builders.
+
+---
+
+## Repository Receipts
+
+Current repository status:
+
+* Pipeline execution: **PASS**
+* Automated test suite: **5 tests passing**
+* Repository verification: **PASS**
+* Processed dataset successfully matches the expected reference dataset.
+
+These results demonstrate that the repository can be reproduced from a clean checkout using the documented commands.
+
+---
+
+## Repository Summary
+
+This submission contains:
+
+* A modular Python transaction processing pipeline.
+* Production-style engineering documentation.
+* Automated unit tests.
+* Repository verification.
+* Expected output validation.
+* A production incident scenario.
+* A realistic repository-level debugging workflow.
+
+The repository is designed to evaluate repository comprehension, debugging, verification, and structured software engineering rather than isolated code generation.
