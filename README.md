@@ -54,42 +54,29 @@ pytest
 ## Repository Structure
 
 ```text
-.
-├── data/
-│   ├── raw/              # Source transaction data
-│   ├── processed/        # Generated pipeline output
-│   ├── expected/         # Expected reference output
-│   └── logs/             # Pipeline execution logs
-│
-├── docs/                 # Engineering documentation
-├── scripts/              # Pipeline entry points
-├── src/                  # Pipeline implementation
-├── tests/                # Automated test suite
-└── verifier/             # Repository verification utilities
+|-- data/
+|   |-- raw/              # Source transaction data
+|   |-- processed/        # Generated pipeline output
+|   |-- expected/         # Expected reference output
+|   |-- logs/             # Pipeline execution logs
+|
+|-- docs/                 # Engineering documentation
+|-- scripts/              # Pipeline entry points
+|-- src/                  # Pipeline implementation
+|-- tests/                # Automated test suite
+|-- verifier/             # Repository verification utilities
 ```
 
 ---
 
 ## Pipeline Architecture
 
-```text
-Raw Transactions
-        │
-        ▼
-Loader
-        │
-        ▼
-Transformer
-        │
-        ▼
-Validator
-        │
-        ▼
-Exporter
-        │
-        ▼
-Processed Dataset
-```
+# How it works
+
+Raw transactions come in as CSV, get loaded, cleaned, validated, 
+and written out to the processed folder. Four stages:
+
+loader -> transformer -> validator -> exporter
 
 ---
 
