@@ -1,6 +1,7 @@
 import subprocess
 import sys
 from pathlib import Path
+import filecmp
 
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
@@ -32,17 +33,41 @@ def run_command(command: list[str], description: str) -> bool:
 def verify_processed_output() -> bool:
     print("\n=== Checking processed output ===")
 
-    output_file = PROJECT_ROOT / "data" / "processed" / "transactions_clean.csv"
+    processed_file = (
+        PROJECT_ROOT
+        / "data"
+        / "processed"
+        / "transactions_clean.csv"
+    )
 
-    if not output_file.exists():
+    expected_file = (
+        PROJECT_ROOT
+        / "data"
+        / "expected"
+        / "transactions_clean.csv"
+    )
+
+    if not processed_file.exists():
         print("Processed dataset not found.")
         return False
 
-    if output_file.stat().st_size == 0:
+    if not expected_file.exists():
+        print("Expected dataset not found.")
+        return False
+
+    if processed_file.stat().st_size == 0:
         print("Processed dataset is empty.")
         return False
 
-    print("Processed dataset found.")
+    if not filecmp.cmp(
+        processed_file,
+        expected_file,
+        shallow=False,
+    ):
+        print("Processed dataset does not match expected output.")
+        return False
+
+    print("Processed dataset matches expected output.")
     return True
 
 
